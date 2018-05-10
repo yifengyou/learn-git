@@ -15,6 +15,7 @@
 - [替换本地改动 git fetch/reset](#替换本地改动-git-fetchreset)
 - [实用小贴士](#实用小贴士)
 - [Git免密码](#git免密码)
+- [github上的版本和本地版本冲突的解决方法](#github上的版本和本地版本冲突的解决方法)
 
 <!-- /TOC -->
 
@@ -350,5 +351,47 @@ github默认采用https来clone代码，如果改成ssh形式是不需要输入�
     git push --set-upstream origin master
 
 然后就OK了。
+
+---
+
+# github上的版本和本地版本冲突的解决方法
+
+在github上创建项目，然后本地git init
+
+然后没有git pull -f --all
+
+然后git add .  | git commit -am "init"
+
+导致github上的版本里有readme文件和本地版本冲突，下面给出冲突原因：
+
+
+```
+[master][~/Downloads/ios] git push -u origin master
+Username for 'https://github.com': shiren1118
+Password for 'https://shiren1118@github.com':
+To https://github.com/shiren1118/iOS_code_agile.git
+ ! [rejected]        master -> master (non-fast-forward)
+error: failed to push some refs to 'https://github.com/shiren1118/iOS_code_agile.git'
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. Merge the remote changes (e.g. 'git pull')
+hint: before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+```
+查看大部分资料，只有这个有用
+
+<http://www.cnblogs.com/xwdreamer/archive/2012/05/29/2523958.html>
+
+勾选强制覆盖已有的分支（可能会丢失改动），再点击上传，上传成功。
+
+
+只有这句是核心，所以，略微想了一下有莫有重要数据？
+
+```
+[master][~/Downloads/ios] git push -u origin master -f
+```
+
+
+至此，搞定问题
+
 
 ---
