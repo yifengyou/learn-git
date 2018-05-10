@@ -3,17 +3,18 @@
 - [Git简介](#git简介)
 - [Git安装](#git安装)
 - [特点](#特点)
-- [创建新仓库](#创建新仓库)
-- [检出仓库](#检出仓库)
+- [创建新仓库 git init](#创建新仓库-git-init)
+- [检出仓库 git clone](#检出仓库-git-clone)
 - [工作流](#工作流)
-- [添加和提交](#添加和提交)
-- [推送改动](#推送改动)
-- [分支](#分支)
-- [更新与合并](#更新与合并)
-- [标签](#标签)
-- [log](#log)
-- [替换本地改动](#替换本地改动)
+- [添加和提交 git add](#添加和提交-git-add)
+- [推送改动 git push](#推送改动-git-push)
+- [分支 git branch/checkout](#分支-git-branchcheckout)
+- [更新与合并 git pull/merge](#更新与合并-git-pullmerge)
+- [标签 git tag/log](#标签-git-taglog)
+- [历史记录 git log](#历史记录-git-log)
+- [替换本地改动 git fetch/reset](#替换本地改动-git-fetchreset)
 - [实用小贴士](#实用小贴士)
+- [Git免密码](#git免密码)
 
 <!-- /TOC -->
 
@@ -98,7 +99,7 @@ git version 2.7.4
 
 ---
 
-# 创建新仓库
+# 创建新仓库 git init
 
 创建新文件夹，打开，然后执行
 
@@ -107,7 +108,7 @@ git version 2.7.4
 以创建新的 git 仓库。
 
 ---
-# 检出仓库
+# 检出仓库 git clone
 
 执行如下命令以创建一个本地仓库的克隆版本:
 
@@ -119,7 +120,7 @@ git version 2.7.4
 
 ---
 
-#工作流
+# 工作流
 你的本地仓库由 git 维护的三棵“树”组成。
 
 * 第一个是你的 工作目录，它持有实际文件
@@ -131,7 +132,7 @@ git version 2.7.4
 ---
 
 
-# 添加和提交
+# 添加和提交 git add
 
 你可以提出更改（把它们添加到暂存区），使用如下命令：
 
@@ -146,7 +147,7 @@ git version 2.7.4
 
 ---
 
-# 推送改动
+# 推送改动 git push
 
 你的改动现在已经在本地仓库的 HEAD 中了。执行如下命令以将这些改动提交到远端仓库：
 
@@ -162,7 +163,7 @@ git version 2.7.4
 
 ---
 
-# 分支
+# 分支 git branch/checkout
 
 分支是用来将特性开发绝缘开来的。在你创建仓库的时候，master 是“默认的”分支。在其他分支上进行开发，完成后再将它们合并到主分支上。
 
@@ -186,7 +187,7 @@ git version 2.7.4
 
 ---
 
-# 更新与合并
+# 更新与合并 git pull/merge
 
 要更新你的本地仓库至最新改动，执行：
 
@@ -208,7 +209,7 @@ git version 2.7.4
 
 ---
 
-# 标签
+# 标签 git tag/log
 
 为软件发布创建标签是推荐的。这个概念早已存在，在 SVN 中也有。你可以执行如下命令创建一个叫做 1.0.0 的标签：
 
@@ -223,7 +224,7 @@ git version 2.7.4
 
 ---
 
-# log
+# 历史记录 git log
 
 如果你想了解本地仓库的历史记录，最简单的命令就是使用:
 
@@ -251,7 +252,7 @@ git version 2.7.4
 
 ---
 
-# 替换本地改动
+# 替换本地改动 git fetch/reset
 
 假如你操作失误（当然，这最好永远不要发生），你可以使用如下命令替换掉本地改动：
 
@@ -283,5 +284,71 @@ git version 2.7.4
 交互式添加文件到暂存区：
 
     git add -i
+
+---
+
+# Git免密码
+
+* 方法一
+
+创建文件存储GIT用户名和密码
+
+    touch .git-credentials
+    vim .git-credentials
+    https://{username}:{password}@github.com
+
+添加Git Config 内容
+
+    git config --global credential.helper store
+
+执行完后查看%HOME%目录下的.gitconfig文件，会多了一项：[credential]
+
+```
+root@iZbp136jwir14u4w7i4o74Z:~# cat .gitconfig
+[user]
+	name = youyifeng
+	email = 842056007@qq.com
+[push]
+	default = simple
+[credential]
+	helper = store
+[color]
+	ui = auto
+[http]
+	postBuffer = 524288000
+[core]
+	compression = -1
+
+helper = store
+```
+
+重新开启git bash会发现git push时不用再输入用户名和密码
+
+    注：当用户名为邮箱时，需要把用户名的@转义为%40
+
+* 方法二
+
+github默认采用https来clone代码，如果改成ssh形式是不需要输入密码的。在bash中输入
+
+    ssh-keygen -t rsa -C "email@email.com"
+
+要求输入位置和 passphrase的时候，按enter即可。默认生成的文件在%HOME%/.ssh中，包括id_rsa 和 id_rsa.pub。
+
+在github的profile中，新增ssh key，title任意可空，把id_rsa.pub中的东西复制到内容中就好。
+然后在bash中执行：
+
+![githubsetting](https://github.com/yifengyou/learn-git/raw/master/image/githubsetting.png)
+
+![githubprofile](https://github.com/yifengyou/learn-git/raw/master/image/githubprofile.png)
+
+![githubsshkey](https://github.com/yifengyou/learn-git/raw/master/image/githubsshkey.png)
+
+![addnewsshkey](https://github.com/yifengyou/learn-git/raw/master/image/addnewsshkey.png)
+
+    git remote rm origin
+    git remote add origin git@github.com:account/repository.git
+    git push --set-upstream origin master
+
+然后就OK了。
 
 ---
