@@ -105,7 +105,7 @@ git version 2.7.4
 * 第二个是 暂存区（Index），它像个缓存区域，临时保存你的改动
 * 最后是 HEAD，它指向你最后一次提交的结果。  
 
-![worktree](image\worktree.png)
+![worktree](https://github.com/yifengyou/learn-git/blob/master/image/worktree.png)
 
 ---
 
@@ -145,7 +145,7 @@ git version 2.7.4
 
 分支是用来将特性开发绝缘开来的。在你创建仓库的时候，master 是“默认的”分支。在其他分支上进行开发，完成后再将它们合并到主分支上。
 
-![branchs](image\branchs.png)
+![branchs](https://github.com/yifengyou/learn-git/blob/master/image/branchs.png)
 
 创建一个叫做“feature_x”的分支，并切换过去：
 
@@ -262,5 +262,5 @@ git version 2.7.4
 交互式添加文件到暂存区：
 
     git add -i
-    
+
 ---
