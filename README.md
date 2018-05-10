@@ -1,14 +1,8 @@
-# 目录
+<!-- TOC depthFrom:1 depthTo:1 withLinks:1 updateOnSave:1 orderedList:0 -->
 
-<!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
-
-- [目录](#目录)
 - [Git简介](#git简介)
 - [Git安装](#git安装)
 - [特点](#特点)
-		- [Git的功能特性：](#git的功能特性)
-		- [优点：](#优点)
-		- [缺点：](#缺点)
 - [创建新仓库](#创建新仓库)
 - [检出仓库](#检出仓库)
 - [工作流](#工作流)
