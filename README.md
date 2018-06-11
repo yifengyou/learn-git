@@ -19,7 +19,19 @@
 
 <!-- /TOC -->
 
+本仓库已经开始作为GitBook仓库，访问地址
 
+<https://yifengyou.gitbooks.io/learn-git/content/>
+
+GitHub访问地址
+
+<https://github.com/yifengyou/learn-git/>
+
+```
+Something I hope you know before go into the coding~
+First, please watch or star this repo, I'll be more happy if you follow me.
+Bug report, questions and discussion are welcome, you can post an issue or pull a request.
+```
 
 # Git简介
 
@@ -64,7 +76,7 @@ git version 2.7.4
 在本地机器上拷贝一个完整的Git仓库。
 下图是经典的git开发过程。
 
-![git开发过程](https://github.com/yifengyou/learn-git/raw/master/image/git开发过程.png)
+![git开发过程](image/git开发过程.png)
 
 ### Git的功能特性：
 从一般开发者的角度来看，git有以下功能：
@@ -128,7 +140,7 @@ git version 2.7.4
 * 第二个是 暂存区（Index），它像个缓存区域，临时保存你的改动
 * 最后是 HEAD，它指向你最后一次提交的结果。  
 
-![worktree](https://github.com/yifengyou/learn-git/blob/master/image/worktree.png)
+![worktree](image/worktree.png)
 
 ---
 
@@ -168,7 +180,7 @@ git version 2.7.4
 
 分支是用来将特性开发绝缘开来的。在你创建仓库的时候，master 是“默认的”分支。在其他分支上进行开发，完成后再将它们合并到主分支上。
 
-![branchs](https://github.com/yifengyou/learn-git/blob/master/image/branchs.png)
+![branchs](image/branchs.png)
 
 创建一个叫做“feature_x”的分支，并切换过去：
 
@@ -338,13 +350,13 @@ github默认采用https来clone代码，如果改成ssh形式是不需要输入�
 在github的profile中，新增ssh key，title任意可空，把id_rsa.pub中的东西复制到内容中就好。
 然后在bash中执行：
 
-![githubsetting](https://github.com/yifengyou/learn-git/raw/master/image/githubsetting.png)
+![githubsetting](image/githubsetting.png)
 
-![githubprofile](https://github.com/yifengyou/learn-git/raw/master/image/githubprofile.png)
+![githubprofile](image/githubprofile.png)
 
-![githubsshkey](https://github.com/yifengyou/learn-git/raw/master/image/githubsshkey.png)
+![githubsshkey](image/githubsshkey.png)
 
-![addnewsshkey](https://github.com/yifengyou/learn-git/raw/master/image/addnewsshkey.png)
+![addnewsshkey](image/addnewsshkey.png)
 
     git remote rm origin
     git remote add origin git@github.com:account/repository.git
