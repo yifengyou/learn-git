@@ -1,0 +1,84 @@
+git-diff-files(1)
+=================
+v0.1, May 2005
+
+NAME
+----
+git-diff-files - Compares files in the working tree and the cache
+
+
+SYNOPSIS
+--------
+'git-diff-files' [-p] [-q] [-r] [-z] [-R] [-B] [-M] [-C] [--find-copies-harder] [-O<orderfile>] [-S<string>] [--pickaxe-all] [<path>...]
+
+DESCRIPTION
+-----------
+Compares the files in the working tree and the cache.  When paths
+are specified, compares only those named paths.  Otherwise all
+entries in the cache are compared.  The output format is the
+same as "git-diff-cache" and "git-diff-tree".
+
+OPTIONS
+-------
+-p::
+	generate patch (see section on generating patches).
+
+-q::
+	Remain silent even on nonexisting files
+
+-R::
+	Swap two inputs; that is, show differences from on-disk files
+	to cache contents.
+
+-B::
+	Break complete rewrite changes into pairs of delete and create.
+
+-M::
+	Detect renames.
+
+-C::
+	Detect copies as well as renames.
+
+--find-copies-harder::
+	By default, -C option finds copies only if the original
+	file of the copy was modified in the same changeset for
+	performance reasons.  This flag makes the command
+	inspect unmodified files as candidates for the source of
+	copy.  This is a very expensive operation for large
+	projects, so use it with caution.
+
+-S<string>::
+	Look for differences that contains the change in <string>.
+
+--pickaxe-all::
+	When -S finds a change, show all the changes in that
+	changeset, not just the files that contains the change
+	in <string>.
+
+-O<orderfile>::
+	Output the patch in the order specified in the
+	<orderfile>, which has one shell glob pattern per line.
+
+-r::
+	This flag does not mean anything.  It is there only to match
+	git-diff-tree.  Unlike git-diff-tree, git-diff-files always looks
+	at all the subdirectories.
+
+
+Output format
+-------------
+include::diff-format.txt[]
+
+
+Author
+------
+Written by Linus Torvalds <torvalds@osdl.org>
+
+Documentation
+--------------
+Documentation by David Greaves, Junio C Hamano and the git-list <git@vger.kernel.org>.
+
+GIT
+---
+Part of the link:git.html[git] suite
+

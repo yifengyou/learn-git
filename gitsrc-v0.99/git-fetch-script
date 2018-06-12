@@ -1,0 +1,33 @@
+#!/bin/sh
+#
+destination=FETCH_HEAD
+
+merge_repo=$1
+merge_name=${2:-HEAD}
+if [ "$2" = "tag" ]; then
+	merge_name="refs/tags/$3"
+	destination="$merge_name"
+fi
+
+. git-sh-setup-script || die "Not a git archive"
+
+TMP_HEAD="$GIT_DIR/TMP_HEAD"
+
+case "$merge_repo" in
+http://*)
+	head=$(wget -q -O - "$merge_repo/$merge_name") || exit 1
+	echo Fetching $head using http
+	git-http-pull -v -a "$head" "$merge_repo/"
+	;;
+rsync://*)
+	rsync -L "$merge_repo/$merge_name" "$TMP_HEAD" || exit 1
+	head=$(git-rev-parse TMP_HEAD)
+	rm -f "$TMP_HEAD"
+	rsync -avz --ignore-existing "$merge_repo/objects/" "$GIT_OBJECT_DIRECTORY/"
+	;;
+*)
+	head=$(git-fetch-pack "$merge_repo" "$merge_name")
+	;;
+esac || exit 1
+git-rev-parse --verify "$head" > /dev/null || exit 1
+echo "$head" > "$GIT_DIR/$destination"

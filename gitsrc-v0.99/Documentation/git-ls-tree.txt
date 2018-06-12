@@ -1,0 +1,55 @@
+git-ls-tree(1)
+==============
+v0.1, May 2005
+
+NAME
+----
+git-ls-tree - Lists the contents of a tree object.
+
+
+SYNOPSIS
+--------
+'git-ls-tree' [-d] [-r] [-z] <tree-ish> [paths...]
+
+DESCRIPTION
+-----------
+Lists the contents of a tree object, like what "/bin/ls -a" does
+in the current working directory.
+
+OPTIONS
+-------
+<tree-ish>::
+	Id of a tree.
+
+-d::
+	show only the named tree entry itself, not its children
+
+-r::
+	recurse into sub-trees
+
+-z::
+	\0 line termination on output
+
+paths::
+	When paths are given, shows them.  Otherwise implicitly
+	uses the root level of the tree as the sole path argument.
+
+
+Output Format
+-------------
+        <mode> SP <type> SP <object> TAB <file>
+
+
+Author
+------
+Written by Linus Torvalds <torvalds@osdl.org>
+Completely rewritten from scratch by Junio C Hamano <junkio@cox.net>
+
+Documentation
+--------------
+Documentation by David Greaves, Junio C Hamano and the git-list <git@vger.kernel.org>.
+
+GIT
+---
+Part of the link:git.html[git] suite
+
