@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 cmd="$1"
 shift
 if which git-$cmd-script >& /dev/null

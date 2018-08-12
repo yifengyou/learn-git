@@ -1,0 +1,25 @@
+#!/bin/sh
+#
+. git-sh-setup-script || die "Not a git archive"
+
+merge_repo=$1
+
+merge_name=$(echo "$1" | sed 's:\.git/*$::')
+merge_head=HEAD
+type=head
+if [ "$2" = "tag" ]; then
+   type=tag
+   shift
+fi
+if [ "$2" ]
+then
+   merge_name="$type '$2' of $merge_name"
+   merge_head="refs/${type}s/$2"
+fi
+
+git-fetch-script "$merge_repo" "$merge_head" || exit 1
+
+git-resolve-script \
+	"$(cat "$GIT_DIR"/HEAD)" \
+	"$(cat "$GIT_DIR"/FETCH_HEAD)" \
+	"Merge $merge_name"
