@@ -111,4 +111,6 @@
     * [外部系统](docs/附录-Git命令/外部系统.md)
     * [管理](docs/附录-Git命令/管理.md)
     * [底层命令](docs/附录-Git命令/底层命令.md)
+* [附录-Git帮助](docs/附录-Git帮助.md)
+    * [add命令帮助](docs/附录-Git帮助/add命令帮助.md)
 
