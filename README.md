@@ -14,9 +14,11 @@ Bug report, questions and discussion are welcome, you can post an issue or pull 
 
 ## 相关站点
 
+* Git Pro教程站点:<https://git-scm.com/book/en/v2>
 * GitBook:<https://yifengyou.gitbooks.io/learn-git/content/>
 * GitHub:<https://github.com/yifengyou/learn-git/>
 * GitPage:<https://yifengyou.github.io/learn-git/>
+
 
 ## Git简介
 
@@ -156,8 +158,6 @@ GitHub是一个面向开源及私有软件项目的托管平台，因为只支�
 
 
 ## 参考
-
-* <https://git-scm.com/book/en/v2>
 
 ![20191004_223649_68](image/20191004_223649_68.png)
 
