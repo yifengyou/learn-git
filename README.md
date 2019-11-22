@@ -14,23 +14,23 @@ Bug report, questions and discussion are welcome, you can post an issue or pull 
 
 ## 相关站点
 
-* Git Pro教程站点:<https://git-scm.com/book/en/v2>
-* GitBook:<https://yifengyou.gitbooks.io/learn-git/content/>
-* GitHub:<https://github.com/yifengyou/learn-git/>
-* GitPage:<https://yifengyou.github.io/learn-git/>
+* Git Pro教程站点 : <https://git-scm.com/book/en/v2>
+* GitBook : <https://yifengyou.gitbooks.io/learn-git/content/>
+* GitHub : <https://github.com/yifengyou/learn-git/>
+* GitPage : <https://yifengyou.github.io/learn-git/>
 
 
-## Git简介
+## Git 简介
 
-Git(读音为**/gɪt/**)是一个开源的分布式版本控制系统，可以有效.高速的处理从很小到非常大的项目版本管理。
+**Git**(读音为**/gɪt/**)是一个开源的分布式版本控制系统，可以有效.高速的处理从很小到非常大的项目版本管理。
 
-** Git 诞生于2005年，Linus Torvalds 为了帮助管理 Linux 内核开发花了两周时间自己用C写的一个分布式版本控制系统 **
+**Git 诞生于2005年，Linus Torvalds 为了帮助管理 Linux 内核开发花了两周时间自己用C写的一个分布式版本控制系统**
 
 ![1533473327999.png](image/1533473327999.png)
 
-Torvalds开始着手开发 Git 是为了作为一种过渡方案来替代 BitKeeper，后者之前一直是 Linux 内核开发人员在全球使用的主要源代码工具。开放源码社区中的有些人觉得BitKeeper 的许可证并不适合开放源码社区的工作，因此 Torvalds 决定着手研究许可证更为灵活的版本控制系统。尽管最初 Git 的开发是为了辅助 Linux 内核开发的过程，但是我们已经发现在很多其他自由软件项目中也使用了 Git。例如 很多 Freedesktop 的项目迁移到了 Git 上。
+Torvalds 开始着手开发 **Git** 是为了作为一种过渡方案来替代 **BitKeeper**，后者之前一直是 Linux 内核开发人员在全球使用的主要源代码工具。开放源码社区中的有些人觉得BitKeeper 的许可证并不适合开放源码社区的工作，因此 Torvalds 决定着手研究许可证更为灵活的版本控制系统。尽管最初 Git 的开发是为了辅助 Linux 内核开发的过程，但是我们已经发现在很多其他自由软件项目中也使用了 Git。例如 很多 Freedesktop 的项目迁移到了 Git 上。
 
-## GitHub托管平台
+## GitHub 托管平台
 
 GitHub是一个面向开源及私有软件项目的托管平台，因为只支持 Git 作为唯一的版本库格式进行托管，故名GitHub。
 
@@ -122,6 +122,7 @@ GitHub是一个面向开源及私有软件项目的托管平台，因为只支�
     * [作为客户端的Git](docs/Git与其他系统/作为客户端的Git.md)
     * [迁移到Git](docs/Git与其他系统/迁移到Git.md)
     * [总结](docs/Git与其他系统/总结.md)
+* [使用repo管理多个Git仓库](docs/使用repo管理多个Git仓库.md)
 * [Git内部原理](docs/Git内部原理.md)
     * [底层命令和高层命令](docs/Git内部原理/底层命令和高层命令.md)
     * [Git对象](docs/Git内部原理/Git对象.md)

@@ -78,6 +78,7 @@
     * [作为客户端的Git](docs/Git与其他系统/作为客户端的Git.md)
     * [迁移到Git](docs/Git与其他系统/迁移到Git.md)
     * [总结](docs/Git与其他系统/总结.md)
+* [使用repo管理多个Git仓库](docs/使用repo管理多个Git仓库.md)
 * [Git内部原理](docs/Git内部原理.md)
     * [底层命令和高层命令](docs/Git内部原理/底层命令和高层命令.md)
     * [Git对象](docs/Git内部原理/Git对象.md)
