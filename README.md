@@ -63,7 +63,7 @@ GitHub是一个面向开源及私有软件项目的托管平台，因为只支�
     * [查看提交历史](docs/Git基础/查看提交历史.md)
     * [撤销操作](docs/Git基础/撤销操作.md)
     * [远程仓库的使用](docs/Git基础/远程仓库的使用.md)
-    * [打标签](docs/Git基础/打标签.md)
+    * [tag打标签](docs/Git基础/tag打标签.md)
     * [Git别名](docs/Git基础/Git别名.md)
 * [Git分支](docs/Git分支.md)
     * [分支简介](docs/Git分支/分支简介.md)
