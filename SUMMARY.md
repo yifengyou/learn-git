@@ -1,5 +1,12 @@
 # Summary
 
+* [图解Git操作](docs/图解Git操作.md)
+    * [工作流程及原理](docs/图解Git操作/工作流程及原理.md)
+    * [Git数据模型](docs/图解Git操作/Git数据模型.md)
+    * [分离头指针](docs/图解Git操作/分离头指针.md)
+* [常用Git实例(Git Tips)](docs/常用Git实例.md)
+    * [回到远程仓库的状态](docs/常用Git实例/回到远程仓库的状态.md)
+    * [合并多个commit](docs/常用Git实例/合并多个commit.md)
 * [读我](README.md)
 * [起步](docs/起步.md)
     * [关于版本控制](docs/起步/关于版本控制.md)
@@ -114,3 +121,4 @@
     * [底层命令](docs/附录-Git命令/底层命令.md)
 * [附录-Git帮助](docs/附录-Git帮助.md)
     * [add命令帮助](docs/附录-Git帮助/add命令帮助.md)
+
