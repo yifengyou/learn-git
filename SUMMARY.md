@@ -7,6 +7,7 @@
 * [常用Git实例(Git Tips)](docs/常用Git实例.md)
     * [回到远程仓库的状态](docs/常用Git实例/回到远程仓库的状态.md)
     * [合并多个commit](docs/常用Git实例/合并多个commit.md)
+    * [拉取仓库所有分支](docs/常用Git实例/拉取仓库所有分支.md)
 * [读我](README.md)
 * [起步](docs/起步.md)
     * [关于版本控制](docs/起步/关于版本控制.md)
