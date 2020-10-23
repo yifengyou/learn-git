@@ -146,7 +146,7 @@ sudo yum install -y git
 
 ### Mac
 
-**我是穷鬼，从没用过Mac**
+我是穷鬼，从没用过Mac，不要问我mac怎么装git...~~~
 
 
 ## 配置git环境
@@ -181,7 +181,7 @@ system: 本系统的所有用户
 
 ```bash
 git add . ：将工作空间新增和被修改的文件添加的暂存区
-git add -u :将工作空间被修改和被删除的文件添加到暂存区(不包含没有纳入Git管理的新增文件)
+git add -u :将工作空间被修改和被删除的文件添加到暂存区(*不包含没有纳入Git管理的新增文件*)
 ```    
 
 * 这里应该根据帮助来记忆，-u是什么意思，update，只添加更新的且已经追踪的文件，这些文件可以刚删除（删除也是更新的一种）
@@ -232,59 +232,94 @@ git status  查看状态
     - -f ：force 强制
     - -rf ： 递归强制删除，不带任何提示的那种
 
-![20201023_203205_25](image/20201023_203205_25.png) 
+![20201023_203205_25](image/20201023_203205_25.png)
 
 
 ## clone时指定文件夹名字
+
 ```git
-git clone https://github.com/repository_NAME PATH/new_folder
+git clone https://github.com/repository_NAME PATH/new_folder -b branch_Name
 ```
 
+* clone：克隆，拷贝
+* 后面指定路径，如果目录不存在则会创建。最终仓库文件是在```PATH/new_folder```，而不是```PATH/new_folder/repository_NAME```
+* -b : branch 指定分支名称
+
+![20201023_203738_50](image/20201023_203738_50.png)
+
+
 ## 给文件重命名的简便方法
+
 ```bash
 git  mv  [old file name]  [new file name]
 git commit -m 'some information'
 ```
+
+
+如果新但文件名已经存在，但还是要重命名它，可以使用 -f 参数：
+
+```bash
+git mv -f [file] [newfile]
+```
+
+
+
 ## Tag标签
-**显示已有标签**   
+
+* -a:annotated 理解为add也不是不行，添加标签
+* -d：delete
+
+
+**显示已有标签**
+
 ```shell
 git tag
 ```
+
 **新建标签**   
+
 *创建一个含附注类型的标签非常简单，用 -a （译注：取 annotated 的首字母）指定标签名字即可*
 ```shell
 git tag -a tag_name -m 'Some Messages'
 ```
+
 **删除标签**   
 删除本地标签:    
 ```shell
 git tag -d tag_name
 ```
+
 删除`remote`标签    :
 ```shell
 git push --delete origin tag_name
 ```
 **推送标签到github**
+
 将本地**所有**标签推送到`remote`:    
 ```shell
 git push origin --tags
 ```
 
+![20201023_204636_98](image/20201023_204636_98.png)
+
+![20201023_204724_61](image/20201023_204724_61.png)
+
 ## 在Github上面创建Release
+
 1. 在当前`repository`下点击 **release** 标签:
-    ![github release](images/github-release1.png)    
 
-2. 点击 **Draft a new release** 按钮:
-    ![github release](images/github-release2.png)    
+![20201023_204951_53](image/20201023_204951_53.png)  
 
-3. 在跳转后的界面下填写 `Tag version` 、 `Release title` 和 `描述`
-    ![github release](images/github-release3.png)    
-    如下图:   
-    ![github release](images/github-release4.png)    
+2. 点击 **Draft a new release** （起草一个新的release）按钮，在跳转后的界面下填写 `Tag version` 、 `Release title` 和 `描述`
+
+![20201023_205111_85](image/20201023_205111_85.png)  
+
 4. 点击 `Update release`按钮提交即可，提交后效果:
-    ![github release](images/github-release5.png)    
+
+![20201023_205200_58](image/20201023_205200_58.png)    
 
 ## 通过git log查看版本演变历史
+
 ```bash
 git log --all 查看所有分支的历史
 git log --all --graph 查看图形化的 log 地址
