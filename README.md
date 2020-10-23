@@ -10,7 +10,10 @@ Bug report, questions and discussion are welcome, you can post an issue or pull 
 
 - [极客时间 苏玲老师 《玩转Git三剑客》笔记](#极客时间-苏玲老师-《玩转git三剑客》笔记)   
    - [安装git](#安装git)   
+   - [Windows](#windows)   
       - [Debian/Ubuntu](#debianubuntu)   
+      - [RedHat/CentOS](#redhatcentos)   
+      - [Mac](#mac)   
    - [配置git环境](#配置git环境)   
       - [添加配置](#添加配置)   
       - [查看配置](#查看配置)   
@@ -100,44 +103,80 @@ Bug report, questions and discussion are welcome, you can post an issue or pull 
 
 ** 本仓库引用自[iGit仓库项目](https://github.com/aimuch/iGit) ，大佬写的实在太好了，参考借鉴，添加自己的内容（NOLICENSE），目的是为了学习，仅仅学习，如有不服，告知后修改**
 
-
-
 ---
 ## 安装git
-git官方下载地址: https://git-scm.com/download
-按照操作系统下载相应软件，其中Ubuntu推荐用**PPA**安装最新版.   
+
+
+## Windows
+
+git官方下载地址: <https://git-scm.com/download>
+
+![20201023_202221_14](image/20201023_202221_14.png)
+
+![20201023_202242_79](image/20201023_202242_79.png)
+
+安装过程中有很多可选定制项，根据个人喜好选择即可，全选默认也行的呢
+
+![20201023_202341_19](image/20201023_202341_19.png)
 
 ### Debian/Ubuntu
 
 For the latest stable version for your release of Debian/Ubuntu
+
 ```sh
-sudo apt-get install git
+sudo apt-get install -y git
 ```
+
 For Ubuntu, this PPA provides the latest stable upstream Git version
+
 ```sh
 sudo add-apt-repository ppa:git-core/ppa
 sudo apt-get update
-sudo apt-get install
+sudo apt-get install -y git
 ```
+
+按照操作系统下载相应软件，其中Ubuntu推荐用**PPA**(Personal Package Archives : Ubuntu - Launchpad)安装最新版.   
+
+### RedHat/CentOS
+
+```sh
+sudo yum makecache
+sudo yum install -y git
+```
+
+### Mac
+
+**我是穷鬼，从没用过Mac**
 
 
 ## 配置git环境
+
 ### 添加配置
+
 ```bash
 git config [--local | --global | --system] user.name 'Your name'
 git config [--local | --global | --system] user.email 'Your email'
 ```
+* 为什么要用户名和email？因为每个git提交都得标记是谁提的，这样好blame追责，不可少
+* ** 默认都是局部优先，也就是优先级 local>>global>>system **
 
 ### 查看配置
+
 ```bash
 git config --list [--local | --global | --system]
 ```
+
+![20201023_202606_87](image/20201023_202606_87.png)
+
+
 ### 区别
+
 ```bash
 local：区域为本仓库
 global: 当前用户的所有仓库
 system: 本系统的所有用户
 ```
+
 ### `git add .` 和 `git add -u`区别
 
 ```bash
@@ -145,19 +184,55 @@ git add . ：将工作空间新增和被修改的文件添加的暂存区
 git add -u :将工作空间被修改和被删除的文件添加到暂存区(不包含没有纳入Git管理的新增文件)
 ```    
 
+* 这里应该根据帮助来记忆，-u是什么意思，update，只添加更新的且已经追踪的文件，这些文件可以刚删除（删除也是更新的一种）
+
+```
+$ git add -h
+usage: git add [<options>] [--] <pathspec>...
+
+    -n, --dry-run         dry run
+    -v, --verbose         be verbose
+
+    -i, --interactive     interactive picking
+    -p, --patch           select hunks interactively
+    -e, --edit            edit current diff and apply
+    -f, --force           allow adding otherwise ignored files
+    -u, --update          update tracked files
+    --renormalize         renormalize EOL of tracked files (implies -u)
+    -N, --intent-to-add   record only the fact that the path will be added later
+    -A, --all             add changes from all tracked and untracked files
+    --ignore-removal      ignore paths removed in the working tree (same as --no-all)
+    --refresh             don't add, only refresh the index
+    --ignore-errors       just skip files which cannot be added because of errors
+    --ignore-missing      check if - even missing - files are ignored in dry run
+    --chmod (+|-)x        override the executable bit of the listed files
+    --pathspec-from-file <file>
+                          read pathspec from file
+    --pathspec-file-nul   with --pathspec-from-file, pathspec elements are separated with NUL character
+```
+
+
+
 ## 创建仓库
+
 ```bash
 git init [project folder name]  初始化 git 仓库
 git add [fileName]  把文件从工作目录添加到暂存区
-git commit -m'some information'  用于提交暂存区的文件
-git commit -am'Some information' 用于提交跟踪过的文件
+git commit -m  'some information'  用于提交暂存区的文件
+git commit -am 'Some information'  用于提交跟踪过的文件
 git log  查看历史
 git status  查看状态
 ```
 
-**额外**    
-git add -u 可以添加所有已经被 git 控制的文件到暂存区
-以前删除文件夹只会用 「-rf」，今天学到了 「-r」，并得知它们两个区别：「-r」 有时候会提示是否确认删除。    
+
+* git add -u 可以添加所有已经被 git 控制的文件到暂存区
+* 以前删除文件夹只会用 「-rf」，今天学到了 「-r」，并得知它们两个区别：「-r」 有时候会提示是否确认删除。
+  - 小伙子，你要用英文来记忆
+    - -r : recursive 递归
+    - -f ：force 强制
+    - -rf ： 递归强制删除，不带任何提示的那种
+
+![20201023_203205_25](image/20201023_203205_25.png) 
 
 
 ## clone时指定文件夹名字
