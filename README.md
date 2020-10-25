@@ -262,10 +262,42 @@ git commit -m 'some information'
 git mv -f [file] [newfile]
 ```
 
+## 理解origin和master
 
+* git的服务器端(remote)端包含多个repository，每个repository可以理解为一个项目。而每个repository下有多个branch。这个服务端基本结构，那么git命令如何标识仓库及分支呢？
+* 首先，本地是有一个master分支，属于开天辟地级别，仓库init的时候就有一个master？不对，实测如果init一个空仓库是没有master，但是如果有README.md等基本文件，就会有master分支。意味着默认就有主分支
+* "origin"就是指向某一个repository的指针。服务器端的"master"（强调服务器端是因为本地端也有master）就是指向某个repository的一个branch的指针。所以origin/master就是服务器端指向master分支的指针
+* 而在本地电脑(local)上："master"就是指向刚刚从remote server传到本地的副本branch。
+* 如果分支名称为 ```ForDebug```，当分支同步到服务器时会看到服务器上的名字为 ```origin/ForDebug``` 。
+
+```
+$git push A B:C     
+```
+
+1. A是remote端repository的名字，或者指针，反正能更具origin找到remote端的repository就是
+2. B是本地分支的名称
+3. C是remote端的分支
+
+**意思是把本地的B推送到remotes/A/C下。当B=C时可以直接省略为：git push A B。**
+
+```
+git push origin master:master 等价为 git push origin master 等价为 git push
+```
+
+* origin指向的是repository，且可以有多个不同的（origin2，origin3...），master只是这个repository中默认创建的第一个branch。
+* 当你git push的时候因为origin和master都是默认创建的，所以可以这样省略，但是这个是bad practice，当换一个branch再git push的时候，有时候就纠结了
+
+![20201025_123857_51](image/20201025_123857_51.png)
+
+![20201025_124113_16](image/20201025_124113_16.png)
+
+* 可以直接通过修改.git/config文件修改origin地址，origin只是个标记，其实你可以随意换
+
+![20201025_124135_78](image/20201025_124135_78.png)
 
 ## Tag标签
 
+* tag就是里程碑
 * -a:annotated 理解为add也不是不行，添加标签
 * -d：delete
 
@@ -391,7 +423,7 @@ blob: 文件
 ```
 
 **【同学问题】** 每次commit，git 都会将当前项目的所有文件夹及文件快照保存到objects目录，如果项目文件比较大，不断迭代，commit无数次后，objects目录中文件大小是不是会变得无限大？    
-**【老师解答】** Git对于内容相同的文件只会存一个blob，不同的commit的区别是commit、tree和有差异的blob，多数未变更的文件对应的blob都是相同的，这么设计对于版本管理系统来说可以省很多存储空间。其次，Git还有增量存储的机制，我估计是对于差异很小的blob设计的吧。    
+**【老师解答】** Git对于内容相同的文件只会存一个blob，不同的commit的区别是commit、tree和有差异的blob，多数未变更的文件对应的blob都是相同的，这么设计对于版本管理系统来说可以省很多存储空间。其次，Git还有增量存储的机制，是对于差异很小的blob设计的。    
 
 
 ## 分离头指针情况下的注意事项
@@ -399,6 +431,7 @@ blob: 文件
 detached HEAD   
 
 ## 进一步理解`HEAD`和`branch`
+
 ```bash
 git checkout -b new_branch [具体分支 或 commit] 创建新分支并切换到新分支
 git diff HEAD HEAD~1 比较最近两次提交
@@ -408,6 +441,7 @@ git diff HEAD HEAD^^ 比较最近和倒数第三次提交
 ```   
 
 ## 怎么删除不需要的分支？
+
 查看分支：   
 ```bash
 git branch -av
@@ -419,11 +453,13 @@ git branch -D [branch name]  #强制删除
 ```
 
 ## 怎么修改最新commit的message
+
 ```bash
 git commit --amend  对最近一次的commit信息进行修改
 ```
 
 ## 理解git reset
+
 - **HEAD**:这是当前分支版本顶端的别名，也就是在当前分支你最近的一个提交   
 - **Index**: index也被称为staging area，是指一整套即将被下一个提交的文件集合。他也是将成为HEAD的父亲的那个commit
 - **Working Copy**: working copy代表你正在工作的那个文件目录
