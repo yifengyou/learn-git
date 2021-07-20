@@ -1,3 +1,20 @@
+<!-- MDTOC maxdepth:6 firsth1:1 numbering:0 flatten:0 bullets:1 updateOnSave:1 -->
+
+- [Git学习笔记](#git学习笔记)   
+   - [仓库介绍](#仓库介绍)   
+   - [相关站点](#相关站点)   
+   - [常用技能](#常用技能)   
+      - [自动保存密码](#自动保存密码)   
+      - [ssh公私钥免密](#ssh公私钥免密)   
+      - [ssh默认编辑器配置](#ssh默认编辑器配置)   
+   - [Git 简介](#git-简介)   
+   - [GitHub 托管平台](#github-托管平台)   
+   - [目录](#目录)   
+   - [参考](#参考)   
+   - [思维导图](#思维导图)   
+   - [总结](#总结)   
+
+<!-- /MDTOC -->
 # Git学习笔记
 
 ![20200211_113940_82](image/20200211_113940_82.png)
@@ -19,6 +36,41 @@ Bug report, questions and discussion are welcome, you can post an issue or pull 
 * GitBook : <https://yifengyou.gitbooks.io/learn-git/content/>
 * GitHub : <https://github.com/yifengyou/learn-git/>
 * GitPage : <https://yifengyou.github.io/learn-git/>
+
+## 常用技能
+
+### 自动保存密码
+
+vim  ~/.git-credentials
+
+```
+https://USERNAME:PASSWD@gitee.com
+```
+
+其中@用 %40 表示
+
+```
+git config credential.helper 'store'
+```
+
+
+### ssh公私钥免密
+
+
+```
+ssh-keygen -t rsa  -C "842056007@qq.com"
+```
+
+公钥在 ~/.ssh/rsa.pub
+私钥位于 ~/.ssh/rsa
+
+
+### ssh默认编辑器配置
+
+```
+git config --global core.editor vim
+```
+
 
 
 ## Git 简介
