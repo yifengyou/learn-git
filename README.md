@@ -4,6 +4,7 @@
    - [仓库介绍](#仓库介绍)   
    - [相关站点](#相关站点)   
    - [常用技能](#常用技能)   
+      - [国内git访问异常](#国内git访问异常)   
       - [自动保存密码](#自动保存密码)   
       - [ssh公私钥免密](#ssh公私钥免密)   
       - [ssh默认编辑器配置](#ssh默认编辑器配置)   
@@ -38,6 +39,39 @@ Bug report, questions and discussion are welcome, you can post an issue or pull 
 * GitPage : <https://yifengyou.github.io/learn-git/>
 
 ## 常用技能
+
+### 国内git访问异常
+
+镜像加速，将github.com替换为hub.fastgit.org
+
+```
+https://hub.fastgit.org/USERNAME/REPO
+```
+
+GitHub站点图片无法打开问题，请修改hosts文件，添加如下内容即可
+
+```
+# GitHub Start
+192.30.253.112    Build software better, together
+192.30.253.119    gist.github.com
+151.101.184.133    assets-cdn.github.com
+151.101.184.133    raw.githubusercontent.com
+151.101.184.133    gist.githubusercontent.com
+151.101.184.133    cloud.githubusercontent.com
+151.101.184.133    camo.githubusercontent.com
+151.101.184.133    avatars0.githubusercontent.com
+151.101.184.133    avatars1.githubusercontent.com
+151.101.184.133    avatars2.githubusercontent.com
+151.101.184.133    avatars3.githubusercontent.com
+151.101.184.133    avatars4.githubusercontent.com
+151.101.184.133    avatars5.githubusercontent.com
+151.101.184.133    avatars6.githubusercontent.com
+151.101.184.133    avatars7.githubusercontent.com
+151.101.184.133    avatars8.githubusercontent.com
+# GitHub End
+```
+
+
 
 ### 自动保存密码
 
