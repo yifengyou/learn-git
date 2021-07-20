@@ -75,16 +75,18 @@ GitHub站点图片无法打开问题，请修改hosts文件，添加如下内容
 
 ### 自动保存密码
 
+对应用户家目录下创建.git-credentials
+
 vim  ~/.git-credentials
 
 ```
-https://USERNAME:PASSWD@gitee.com
+https://USERNAME:PASSWD@github.com
 ```
 
 其中@用 %40 表示
 
 ```
-git config credential.helper 'store'
+git config --global credential.helper 'store'
 ```
 
 
